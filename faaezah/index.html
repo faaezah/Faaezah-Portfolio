@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="android-chrome-512x512.png">
+    <meta charset="UTF-8">
+    <title>Faaezah Shaik — Computer Science Portfolio</title>
+
+    <style>
+        :root {
+            --crimson: #8b0000;
+            --crimson-deep: #5a0000;
+            --gold: #c9a24b;
+            --cream: #fdf9f2;
+            --ink: #1f1b1a;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--cream);
+            font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--ink);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(253, 249, 242, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 60px;
+        }
+
+        .nav-left {
+            font-family: "Georgia", serif;
+            font-size: 20px;
+            color: var(--crimson-deep);
+            letter-spacing: 0.04em;
+        }
+
+        .nav-right a {
+            margin-left: 20px;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #555;
+        }
+
+        .nav-right a:hover {
+            color: var(--crimson-deep);
+        }
+
+
+        .hero {
+            padding: 90px 60px 80px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: "Georgia", serif;
+            font-size: 46px;
+            color: var(--crimson-deep);
+            margin-bottom: 10px;
+        }
+
+        .hero-text h2 {
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: #7a6a5a;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 520px;
+        }
+
+        .hero-tags {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-size: 13px;
+        background: white;
+        border: 1.5px solid var(--gold);
+        color: var(--crimson-deep);
+        font-weight: 500;
+        }
+
+        .hero-buttons {
+            margin-top: 24px;
+            display: flex;
+            gap: 14px;
+        }
+
+        .btn-primary {
+            padding: 10px 22px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--crimson), var(--crimson-deep));
+            color: white;
+            font-size: 15px;
+            border: none;
+        }
+
+        .btn-ghost {
+            padding: 10px 22px;
+            border-radius: 999px;
+            border: 1px solid var(--crimson);
+            color: var(--crimson-deep);
+            font-size: 15px;
+            background: transparent;
+        }
+
+        .hero-card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px 22px 26px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(201,162,75,0.35);
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            margin: 0 auto 14px;
+            object-fit: cover;
+            display: block;
+            }
+
+        .hero-card h3 {
+            text-align: center;
+            font-family: "Georgia", serif;
+            margin-bottom: 6px;
+            color: var(--crimson-deep);
+        }
+
+        .hero-card p {
+            font-size: 14px;
+            text-align: center;
+            color: #6b5b4a;
+            margin-bottom: 18px;
+        }
+
+        .hero-meta {
+            font-size: 13px;
+            color: #7a6a5a;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding-top: 10px;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 60px 70px;
+        }
+
+        .section-header {
+            margin-bottom: 26px;
+        }
+
+        .section-title {
+            font-family: "Georgia", serif;
+            font-size: 28px;
+            color: var(--crimson-deep);
+            display: inline-block;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 4px;
+        }
+
+        .section-subtitle {
+            font-size: 15px;
+            color: #7a6a5a;
+            margin-top: 6px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 40px;
+        }
+
+        .body-text {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: white;
+            border-radius: 16px;
+            padding: 18px 20px;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .highlight-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #7a6a5a;
+            margin-bottom: 8px;
+        }
+
+        .highlight-item {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+        }
+
+        .skill-card {
+            background: white;
+            border-radius: 14px;
+            padding: 16px 18px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .skill-card h3 {
+            font-family: "Georgia", serif;
+            font-size: 17px;
+            margin-bottom: 6px;
+            color: var(--crimson-deep);
+        }
+
+        .skill-card p {
+            font-size: 14px;
+            color: #6b5b4a;
+            margin-bottom: 4px;
+        }
+
+        .skill-tagline {
+            font-size: 13px;
+            color: #8a7a6a;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            padding: 16px 16px 20px;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 150px;
+            border-radius: 12px;
+            object-fit: cover;
+            display: block;
+            border: 1px solid rgba(201,162,75,0.35);
+            background: #f3f0ea;
+        }
+
+
+        .project-title {
+            font-family: "Georgia", serif;
+            font-size: 18px;
+            color: var(--crimson-deep);
+            margin-bottom: 6px;
+        }
+
+        .project-meta {
+            font-size: 13px;
+            color: #8a7a6a;
+            margin-bottom: 8px;
+        }
+
+        .project-desc {
+            font-size: 14px;
+            color: #5a4c3e;
+            line-height: 1.6;
+        }
+
+        .contact-box {
+            background: white;
+            border-radius: 18px;
+            padding: 22px 24px 26px;
+            border: 1px solid rgba(201,162,75,0.4);
+            box-shadow: 0 16px 34px rgba(0,0,0,0.08);
+            max-width: 520px;
+        }
+
+        .contact-box p {
+            font-size: 15px;
+            color: #5a4c3e;
+            margin-bottom: 10px;
+        }
+
+        .contact-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #8a7a6a;
+            margin-top: 10px;
+        }
+
+        .contact-value {
+            font-size: 15px;
+            color: var(--crimson-deep);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px 40px;
+            font-size: 13px;
+            color: #7a6a5a;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 900px) {
+            .nav {
+                padding: 12px 20px;
+            }
+            .hero {
+                padding: 70px 20px 50px;
+            }
+            .hero-inner {
+                grid-template-columns: 1fr;
+            }
+            .section {
+                padding: 30px 20px 50px;
+            }
+        }
+        .socials-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 18px;
+            background: white;
+            border-radius: 14px;
+            border: 1px solid rgba(201,162,75,0.4);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+        }
+
+        .social-icon img {
+            width: 28px;
+            height: 28px;
+            background: #eee;
+            border-radius: 6px;
+        }
+
+        .social-icon span {
+            font-size: 16px;
+            font-family: "Georgia", serif;
+            color: var(--crimson-deep);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="nav">
+    <div class="nav-left">Faaezah Shaik</div>
+    <div class="nav-right">
+        <a href="#about">About</a>
+        <a href="#skills">CS Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#contact">Contact</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <h2>Computer Science • Applied Curiosity • Intentional Building</h2>
+            <h1>Driven by a love for computer science and creative problem‑solving.</h1>
+            <p>
+                I am a computer science student who believes that technology is most powerful when it serves others. Since beginning my CS journey at age ten, I’ve explored cybersecurity, built community‑focused platforms, and launched The Coding Atelier — raising over $1,000 and supporting 40+ individuals. I’m driven by the desire to build tools that create real, lasting impact.
+            </p>
+            <div class="hero-tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Java </span>
+                <span class="tag">Python </span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Web Development</span>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+                    View Projects
+                </button>
+                <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                    Contact
+                </button>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <img class="profile-img" src="src/main/resources/templates/Screenshot%202025-08-11%20113434.png" alt="Faaezah">
+            <h3>Faaezah</h3>
+            <p>Computer science engineer • Java Tutor • Always building, always learning — one project at a time.</p>
+            <div class="hero-meta">
+                <div><strong>Interests:</strong> CS, machine learning, web development, technical problem‑solving</div>
+                <div><strong>GitHub:</strong> github.com/faaezah</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <div class="section-header">
+        <div class="section-title">About Me</div>
+        <div class="section-subtitle">A passionate high schooler who builds, reflects, and iterates with intention.</div>
+    </div>
+
+    <div class="two-column">
+        <div class="body-text">
+            I am a high school computer science student with a long‑standing passion for technology and its potential to create meaningful change. I first discovered computer science at ten years old during the pandemic, and what began as curiosity quickly became a defining part of my identity. I don’t code to look impressive — I code to uplift my community.
+            <br> <br>
+            Through projects ranging from cybersecurity research to launching my community initiative, The Coding Atelier, I have raised over $1,000 and supported more than 40 individuals with accessible, hands‑on computing resources. This is only the beginning, and I am committed to continuing to build thoughtful, impactful technology.
+        </div>
+
+        <div class="highlight-box">
+            <div class="highlight-title">Snapshot of Faaezah</div>
+            <div class="highlight-item">• High school student with strong programming skills</div>
+            <div class="highlight-item">• Connects communities together via building tangible platforms</div>
+            <div class="highlight-item">• Actively building and refining real projects on GitHub</div>
+            <div class="highlight-item">• Robotics Software lead and mentor</div>
+        </div>
+    </div>
+</section>
+
+<!-- CS SKILLS -->
+<section class="section" id="skills">
+    <div class="section-header">
+        <div class="section-title">Computer Science Skills</div>
+        <div class="section-subtitle">Grounded in fundamentals, growing toward depth.</div>
+    </div>
+
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>Java</h3>
+            <p>Extremely experienced with Java, Java tutor, Uses Java as Software Lead to grow her robot</p>
+            <div class="skill-tagline">I enjoy using Java to bring my robot to life and using it to support systems</div>
+        </div>
+        <div class="skill-card">
+            <h3>Python</h3>
+            <p>Used for data encryption research, AI chatbot implementation for school ML club and NASA Space Apps</p>
+            <div class="skill-tagline">I like incorporating my python knowledge into making platforms that matter</div>
+        </div>
+        <div class="skill-card">
+            <h3>Web Development</h3>
+            <p>Built multiple websites to represent school clubs and organizations for real audiences using HTML, CSS, and structured layouts.</p>
+            <div class="skill-tagline">I care about clarity, readability, user experience and building communities together via online platforms.</div>
+        </div>
+        <div class="skill-card">
+            <h3>Machine Learning</h3>
+            <p>Building tech that supports people with visual and hearing disabilities, and competitor in NASA Space Apps </p>
+            <div class="skill-tagline">Passionate about implementing solutions for AI to empower society</div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+    <div class="section-header">
+        <div class="section-title">Project Highlights</div>
+        <div class="section-subtitle">Work that reflects my commitment to uplifting the community. More projects are available on my Github profile.</div>
+    </div>
+
+    <div class="projects-grid">
+
+        <div class="project-card">
+            <img class="project-img" src="image4.jpeg" alt="The Coding Atelier">
+            <div class="project-title">The Coding Atelier</div>
+            <div class="project-meta">Community • Code Accessibility • Education</div>
+            <div class="project-desc">
+                A mission‑driven initiative and website designed to empower underprivileged children
+                with digital literacy. The Coding Atelier focuses on refurbished laptops, hands‑on
+                code kits, and workshops that make computing feel accessible, joyful, and personal.
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img class="project-img" src="src/main/resources/templates/Screenshot%202026-02-16%20154056.png" alt="Data Encryption Research">
+            <div class="project-title">Data Encryption Research</div>
+            <div class="project-meta">Python • Algorithms • Cybersecurity</div>
+            <div class="project-desc">
+                A Python‑based project exploring and comparing different data encryption algorithms
+                and their strengths. This work deepened my understanding of how security, performance,
+                and implementation details interact in real systems.
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img class="project-img" src="../Screenshot%202026-02-16%20154711.png" alt="Astra AI Chatbot">
+            <div class="project-title">Astra AI Chatbot</div>
+            <div class="project-meta">Machine Learning • Community • User Accessibility</div>
+            <div class="project-desc">
+                Astra is a Flask-based AI chatbot that helps students with study tips, quiz generation,
+                and learning support. It uses OpenAI for responses, spaCy for intent detection, and
+                profanity filtering to keep conversations respectful. Designed to boost productivity
+                and engagement in education.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- LEADERSHIP -->
+<section class="section" id="leadership">
+    <div class="section-header">
+        <div class="section-title">Leadership & Approach</div>
+        <div class="section-subtitle">How I think, decide, and work with others.</div>
+    </div>
+
+    <div class="two-column">
+        <div class="body-text">
+            In technical and collaborative settings, I lead with clarity, structure, and intention. I make decisions deliberately, not reactively, and I’m comfortable working through complex problems until they’re fully understood.
+            <br><br>
+            Whether I’m refining a website for a community group or solving a difficult configuration issue, I break challenges into precise steps, ask the right questions, and stay focused until the solution is solid and reliable.
+        </div>
+        <div class="highlight-box">
+            <div class="highlight-title">In Practice</div>
+            <div class="highlight-item">• Treats debugging as a thinking exercise, not just trial‑and‑error</div>
+            <div class="highlight-item">• Balances independence with knowing when to seek input</div>
+            <div class="highlight-item">• Values clean communication and well‑structured work</div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+    <div class="section-header">
+        <div class="section-title">Contact</div>
+        <div class="section-subtitle">For collaboration, opportunities, or conversation.</div>
+    </div>
+
+    <div class="contact-box">
+        <p>
+            I am always open to thoughtful collaboration, especially around computer science,
+            education, and meaningful technology. If you would like to connect, discuss a project,
+            or simply start a conversation, you can reach me here:
+        </p>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">faaezah.ahmed@gmail.com</div>
+
+        <div class="contact-label" style="margin-top: 12px;">GitHub</div>
+        <div class="contact-value">github.com/faaezah</div>
+    </div>
+</section>
+<!-- SOCIALS -->
+<section class="section" id="socials">
+    <div class="section-header">
+        <div class="section-title">Find Me Online</div>
+        <div class="section-subtitle">Professional profiles & technical work.</div>
+    </div>
+
+    <div class="socials-container">
+        <a href="https://www.linkedin.com/in/faaezah-ahmed-shaik-4bb04a381/" class="social-icon" target="_blank">
+            <img src="LinkedIn_logo_initials.png" alt="LinkedIn Icon">
+            <span>LinkedIn</span>
+        </a>
+
+        <a href="https://github.com/faaezah" class="social-icon" target="_blank">
+            <img src="github.png" alt="GitHub Icon">
+            <span>GitHub</span>
+        </a>
+    </div>
+</section>
+
+<footer>
+    © 2026 • Built by Faaezah • Always building, always learning — one project at a time.
+</footer>
+
+</body>
+</html>
